@@ -3,7 +3,6 @@
 source 'https://rubygems.org'
 ruby '3.2.3'
 
-
 # Rails 7系の最新版を指定
 gem 'rails', '~> 7.2.0'
 
