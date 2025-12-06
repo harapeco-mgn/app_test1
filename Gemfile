@@ -1,4 +1,6 @@
-source "https://rubygems.org"
+# frozen_string_literal: true
+
+source 'https://rubygems.org'
 ruby '3.2.3'
 
 # Rails 7系の最新版を指定
