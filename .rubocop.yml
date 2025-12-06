@@ -1,4 +1,4 @@
-rrequire:
+require:
   - rubocop-rails
 
 AllCops:
