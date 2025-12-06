@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source "https://rubygems.org"
 ruby '3.2.3'
 
 # Rails 7系の最新版を指定
