@@ -8,4 +8,4 @@ bundle exec rails assets:clean
 bundle exec rails db:migrate
 
 # シードデータを自動投入(必要に応じて追加)
- bundle exec rails db:seed
+bundle exec rails db:seed
