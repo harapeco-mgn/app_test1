@@ -1,19 +1,15 @@
 <h1>悪魔のお告げ</h1>
 
-<% if @sweet.present? %>
+<<% if @sweet.present? %>
   <p>今日は<%= @sweet.name %>を捧げよ</p>
+  <p><%= @sweet.description %></p>
 
   <% if @sweet.image.attached? %>
     <%= image_tag @sweet.image, width: "300", height: "200", class: "card-img-top img-fluid" %>
-  <% else %>
-    <p>画像がありません</p>
   <% end %>
 <% else %>
   <p>お菓子が見つかりませんでした</p>
 <% end %>
-
-  <p><%= @sweet.description %></p>
-
 
 <%# Xでシェア %>
 
