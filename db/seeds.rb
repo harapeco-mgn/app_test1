@@ -5,5 +5,9 @@
 # Example:
 #
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
+#     MovieGenre.find_or_create_by!(name: genre_name)#   end
+Sweet.create!([
+  { name: "チョコレート", description: "甘くて美味しい" },
+  { name: "キャンディ", description: "カラフルで楽しい" },
+  { name: "クッキー", description: "サクサクして美味しい" }
+])
