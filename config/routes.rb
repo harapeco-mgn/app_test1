@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  get "sweets/index"
+  get "sweets/show"
+  get "sweets/new"
+  get "sweets/create"
+  get "sweets/edit"
+  get "sweets/update"
+  get "sweets/destroy"
   get "static_pages/top"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
  root "static_pages#top"
