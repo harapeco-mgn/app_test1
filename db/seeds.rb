@@ -6,7 +6,7 @@ end
 puts "🌱 Seeding database..."
 
 Sweet.create!([
-  { name: 'チョコレート', description: '甘くて美味しいチョコレート' },
+  { name: 'チョ コレート', description: '甘くて美味しいチョコレート' },
   { name: 'クッキー', description: 'サクサクのクッキー' },
   { name: 'キャンディ', description: 'カラフルなキャンディ' },
   { name: 'ケーキ', description: 'ふわふわのケーキ' },
