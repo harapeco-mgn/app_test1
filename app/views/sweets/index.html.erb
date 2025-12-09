@@ -1,5 +1,6 @@
 <h1>悪魔のお告げ</h1>
 
+<%# .presentはseed.rbでやっているうちは不要 %>
 <<% if @sweet.present? %>
   <p>今日は<%= @sweet.name %>を捧げよ</p>
   <p><%= @sweet.description %></p>
