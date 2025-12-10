@@ -1,2 +1,22 @@
-<h1>悪魔の誘惑</h1>
-<%= link_to "悪魔と向き合う", sweets_path %>
+<!-- app/views/static_pages/top.html.erb など -->
+
+<main class="omen-top">
+  <div class="container">
+    <div class="omen-top__inner">
+      <p class="omen-top__eyecatch">
+        迷える甘党よ、悪魔は今日もあなたを待っている…
+      </p>
+
+      <h1 class="omen-top__title">悪魔の誘惑</h1>
+
+      <p class="omen-top__lead">
+        今日、あなたが捧げるべき供物（お菓子）を一つだけ選び、
+        悪魔のお告げに従いなさい。
+      </p>
+
+      <%= link_to "悪魔と向き合う",
+                  sweets_path,
+                  class: "omen-top__cta" %>
+    </div>
+  </div>
+</main>

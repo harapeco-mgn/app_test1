@@ -1,30 +1,52 @@
-<h1>悪魔のお告げ</h1>
+<div class="container my-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
+      <section class="omen-card">
+        <h1 class="omen-card__title">悪魔のお告げ</h1>
 
-<%# .presentはseed.rbでやっているうちは不要 %>
-<<% if @sweet.present? %>
-  <p>今日は<%= @sweet.name %>を捧げよ</p>
-  <p><%= @sweet.description %></p>
+        <%# .presentはseed.rbでやっているうちは不要 %>
+        <% if @sweet.present? %>
+          <div class="omen-card__content">
+            <p class="omen-card__message">
+              今日は
+              <span class="omen-card__sweet-name"><%= @sweet.name %></span>
+              を捧げよ
+            </p>
+            <p class="omen-card__description"><%= @sweet.description %></p>
 
-  <% if @sweet.image.attached? %>
-    <%= image_tag @sweet.image, width: "300", height: "200", class: "card-img-top img-fluid" %>
-  <% end %>
-<% else %>
-  <p>お菓子が見つかりませんでした</p>
-<% end %>
+            <% if @sweet.image.attached? %>
+              <div class="omen-card__image-wrapper">
+                <%= image_tag @sweet.image, class: "omen-card__image" %>
+              </div>
+            <% end %>
 
-<%# Xでシェア %>
+            <%# Xでシェア %>
+            <div class="omen-card__actions">
+              <%= link_to "Xで結果を報告する",
+                    "https://twitter.com/intent/tweet?text=悪魔に#{@sweet.name}を捧げました！&hashtags=悪魔のお告げ",
+                    class: "btn omen-btn omen-btn--x",
+                    target: "_blank",
+                    rel: "noopener noreferrer" %>
 
-<p>Xで結果を報告する</p>
-<%= link_to "Xで結果を報告する", 
-        "https://twitter.com/intent/tweet?text=悪魔に#{@sweet.name}を捧げました！&hashtags=悪魔のお告げ",
-        target: "_blank", 
-        rel: "noopener noreferrer" %>
-<%# GoogleMap検索外部サイトに飛ばす。 %>
-<%= link_to "ここに向かい、供物を手に入れよ", 
-  "https://www.google.com/maps/search/#{CGI.escape(@sweet.name + ' 販売店')}", 
-  target: "_blank",
-  class: "btn btn-success" %>
+              <%# GoogleMap検索外部サイトに飛ばす。 %>
+              <%= link_to "ここに向かい、供物を手に入れよ",
+                    "https://www.google.com/maps/search/#{CGI.escape(@sweet.name + ' 販売店')}",
+                    class: "btn omen-btn omen-btn--map",
+                    target: "_blank" %>
+            </div>
+          </div>
+        <% else %>
+          <p class="omen-card__message omen-card__message--empty">
+            お菓子が見つかりませんでした
+          </p>
+        <% end %>
 
-<%# もう一度実行 %>
-<%= link_to "別の供物を探す", sweets_path %>
-<%= link_to "Topに戻す", static_pages_top_path %>
+        <%# もう一度実行 %>
+        <div class="omen-card__footer">
+          <%= link_to "別の供物を探す", sweets_path, class: "omen-link" %>
+          <%= link_to "Topに戻す", static_pages_top_path, class: "omen-link" %>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>

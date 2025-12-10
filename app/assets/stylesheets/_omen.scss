@@ -1,0 +1,149 @@
+.omen-card {
+  @extend .card; // Bootstrapカードをベースに
+  background: radial-gradient(circle at top, #2b1b3f 0%, #120915 40%, #050308 100%);
+  background-color: $dark; // グラデーションが効かないときのフォールバック
+  color: $light;
+  border-radius: $border-radius-lg;
+  padding: $spacer * 2;
+  box-shadow: $box-shadow-lg;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.omen-card::before {
+  content: "";
+  position: absolute;
+  inset: -40%;
+  background:
+    radial-gradient(circle at 20% 0%, rgba(255, 0, 128, 0.15), transparent 60%),
+    radial-gradient(circle at 80% 100%, rgba(255, 140, 0, 0.15), transparent 55%);
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+.omen-card__title {
+  @extend .card-title;
+  position: relative;
+  font-size: $h3-font-size;
+  letter-spacing: 0.15em;
+}
+
+.omen-card__title::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 2px;
+  margin: 0.75rem auto 0;
+  background: linear-gradient(to right, transparent, $danger, transparent);
+}
+
+.omen-card__content {
+  position: relative;
+  z-index: 1;
+}
+
+.omen-card__message {
+  font-size: $font-size-base * 1.05;
+  margin-bottom: $spacer * 0.5;
+}
+
+.omen-card__message--empty {
+  opacity: 0.8;
+  font-style: italic;
+}
+
+.omen-card__sweet-name {
+  font-weight: $font-weight-bold;
+  color: $danger;
+  text-shadow: 0 0 8px rgba(220, 53, 69, 0.6);
+}
+
+.omen-card__description {
+  @extend .card-text;
+  font-size: $font-size-base * 0.95;
+  line-height: 1.8;
+  margin-bottom: $spacer * 1.5;
+  opacity: 0.95;
+}
+
+.omen-card__image-wrapper {
+  max-width: 320px;
+  margin: 0 auto $spacer * 1.5;
+  border-radius: $border-radius-lg;
+  overflow: hidden;
+  box-shadow: $box-shadow;
+}
+
+.omen-card__image {
+ width: 100%;
+  height: auto;          // ← 高さは画像に任せる
+  max-height: 260px;     // ← 必要なら最大高さだけ決めておく（好みで調整OK）
+  object-fit: contain;   // ← トリミングせず「全部入れる」方向に
+  display: block;
+}
+
+/* ボタンエリア */
+.omen-card__actions {
+  position: relative;
+  z-index: 1;
+  margin-top: $spacer;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+@include media-breakpoint-up(md) {
+  .omen-card__actions {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+.omen-card__actions-label {
+  margin: 0;
+  font-size: $font-size-sm;
+  opacity: 0.85;
+}
+
+/* 共通ボタンスタイル（Bootstrapボタンを拡張） */
+.omen-btn {
+  @extend .btn;
+  border-radius: $border-radius-pill;
+  padding: 0.55rem 1.6rem;
+  font-weight: $font-weight-bold;
+  font-size: $font-size-base * 0.95;
+}
+
+/* Xボタン（見た目は .btn-dark ベース） */
+.omen-btn--x {
+  @extend .btn-dark;
+}
+
+/* GoogleMapボタン（見た目は .btn-success ベース） */
+.omen-btn--map {
+  @extend .btn-success;
+}
+
+/* フッターリンク */
+.omen-card__footer {
+  position: relative;
+  z-index: 1;
+  margin-top: $spacer * 2;
+  display: flex;
+  justify-content: center;
+  gap: $spacer * 1.5;
+  font-size: $font-size-sm;
+}
+
+.omen-link {
+  color: $light;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+
+.omen-link:hover {
+  color: $warning;
+}
