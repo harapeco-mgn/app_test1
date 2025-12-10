@@ -30,9 +30,10 @@
 
               <%# GoogleMap検索外部サイトに飛ばす。 %>
               <%= link_to "ここに向かい、供物を手に入れよ",
-                    "https://www.google.com/maps/search/#{CGI.escape(@sweet.name + ' 販売店')}",
-                    class: "btn omen-btn omen-btn--map",
-                    target: "_blank" %>
+      "https://www.google.com/maps/search/#{CGI.escape(@sweet.name + ' 販売店')}",
+      class: "btn omen-btn omen-btn--map",
+      target: "_blank",
+      rel: "noopener noreferrer" %>
             </div>
           </div>
         <% else %>

@@ -1,0 +1,103 @@
+.omen-top {
+  position: relative;
+  min-height: calc(100vh - 56px); // ナビバーがある前提で少し余白を引いている想定
+  padding: $spacer * 4 0;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: $light;
+  background:
+    radial-gradient(circle at top, #2b1b3f 0%, #120915 45%, #050308 100%);
+  background-color: $black;
+  overflow: hidden;
+}
+
+/* 光のもやっとした装飾（omen-cardと同じ世界観） */
+.omen-top::before {
+  content: "";
+  position: absolute;
+  inset: -40%;
+  background:
+    radial-gradient(circle at 15% 0%, rgba(255, 0, 128, 0.18), transparent 60%),
+    radial-gradient(circle at 85% 100%, rgba(255, 140, 0, 0.18), transparent 55%);
+  opacity: 0.85;
+  pointer-events: none;
+}
+
+.omen-top__inner {
+  position: relative;
+  z-index: 1; // オーバーレイの下に埋もれないように
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+/* キャッチコピー */
+.omen-top__eyecatch {
+  font-size: $font-size-sm;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  opacity: 0.8;
+  margin-bottom: $spacer * 0.75;
+}
+
+/* メインタイトル */
+.omen-top__title {
+  font-size: clamp(2.4rem, 4vw, 3.2rem);
+  letter-spacing: 0.28em;
+  margin-bottom: $spacer * 1.25;
+}
+
+/* リード文 */
+.omen-top__lead {
+  font-size: $font-size-base * 0.98;
+  line-height: 1.9;
+  opacity: 0.9;
+  margin: 0 auto $spacer * 2;
+}
+
+/* CTAボタン */
+.omen-top__cta {
+  @extend .btn;
+  @extend .btn-danger;
+
+  border-radius: $border-radius-pill;
+  padding: 0.85rem 2.4rem;
+  font-weight: $font-weight-bold;
+  font-size: $font-size-base * 0.95;
+  letter-spacing: 0.12em;
+  text-transform: none;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 24px rgba(220, 53, 69, 0.5);
+}
+
+/* ボタンの光るエフェクト */
+.omen-top__cta::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.25), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.25s ease-out;
+}
+
+.omen-top__cta:hover::before {
+  opacity: 1;
+}
+
+/* ---------------------------
+   レスポンシブ調整
+   --------------------------- */
+@include media-breakpoint-up(md) {
+  .omen-top {
+    padding: $spacer * 6 0;
+  }
+
+  .omen-top__title {
+    font-size: 3.2rem; // 画面が広いときは少し大きめに
+  }
+
+  .omen-top__lead {
+    font-size: $font-size-lg;
+  }
+}
