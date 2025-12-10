@@ -1,4 +1,4 @@
-Sweet.destroy_all if Rails.env.development?
+Sweet.destroy_all
 
 # 画像付きで商品を作成
 sweets_data = [
