@@ -15,12 +15,16 @@
 <%# Xでシェア %>
 
 <p>Xで結果を報告する</p>
-
+<%= link_to "Xで結果を報告する", 
+        "https://twitter.com/intent/tweet?text=悪魔に#{@sweet.name}を捧げました！&hashtags=悪魔のお告げ",
+        target: "_blank", 
+        rel: "noopener noreferrer" %>
 <%# GoogleMap検索外部サイトに飛ばす。 %>
-<p>供物を探す</p>
-
+<%= link_to "ここに向かい、供物を手に入れよ", 
+  "https://www.google.com/maps/search/#{CGI.escape(@sweet.name + ' 販売店')}", 
+  target: "_blank",
+  class: "btn btn-success" %>
 
 <%# もう一度実行 %>
-<p>代わりの供物を探す</p>
-
-<p>トップに戻る</p>
+<%= link_to "別の供物を探す", sweets_path %>
+<%= link_to "Topに戻す", static_pages_top_path %>
