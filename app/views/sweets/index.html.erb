@@ -22,11 +22,11 @@
 
             <%# Xでシェア %>
             <div class="omen-card__actions">
-              <%= link_to "Xで結果を報告する",
-                    "https://twitter.com/intent/tweet?text=悪魔に#{@sweet.name}を捧げました！&hashtags=悪魔のお告げ",
-                    class: "btn omen-btn omen-btn--x",
-                    target: "_blank",
-                    rel: "noopener noreferrer" %>
+           <%= link_to "Xで結果を報告する",
+      "https://twitter.com/intent/tweet?text=#{ERB::Util.url_encode(@tweet_message)}&hashtags=#{ERB::Util.url_encode(@tweet_tags)}",
+      class: "btn omen-btn omen-btn--x",
+      target: "_blank",
+      rel: "noopener noreferrer" %>
 
               <%# GoogleMap検索外部サイトに飛ばす。 %>
               <%= link_to "ここに向かい、供物を手に入れよ",
